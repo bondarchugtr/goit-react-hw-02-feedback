@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import s from "./Feedback.module.css";
-
+import FeedbackOptions from "./Button";
+import Statistics from "./Statistics";
 class Feedback extends Component {
   state = {
     good: 0,
@@ -40,29 +41,21 @@ class Feedback extends Component {
     return (
       <div>
         <h1 className={s.title}>Please leave feedback</h1>
-        <div className={s.button__container}>
-          <button className={s.button__feedback} onClick={this.counterGood}>
-            Good
-          </button>
-          <button className={s.button__feedback} onClick={this.counterNeutral}>
-            Neutral
-          </button>
-          <button className={s.button__feedback} onClick={this.counterBad}>
-            Bad
-          </button>
-        </div>
+
+        <FeedbackOptions
+          counterGood={this.counterGood}
+          counterNeutral={this.counterNeutral}
+          counterBad={this.counterBad}
+        />
         <div className={s.statistics}>
           <h2 className={s.title__statistics}>Statistics</h2>
           {total > 0 ? (
-            <ul className={s.statistics__list}>
-              <li className={s.item__statistics}>Good:{this.state.good}</li>
-              <li className={s.item__statistics}>
-                Neutral:{this.state.neutral}
-              </li>
-              <li className={s.item__statistics}>Bad:{this.state.bad}</li>
-              <li>Total:{total}</li>
-              <li>Positive Feedback:{positive}%</li>
-            </ul>
+            <Statistics
+              good={this.state.good}
+              bad={this.state.bad}
+              total={total}
+              positive={positive}
+            />
           ) : (
             "There is no feedback"
           )}
