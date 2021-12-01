@@ -5,10 +5,12 @@
   text-align: center;
   border: 1px solid tan;
   padding: 15px;
+  border: 1px solid rgb(24, 165, 118);
+  background-color: bisque;
 }
 
 .title {
-  color: rgb(49, 53, 53);
+  color: rgb(139, 126, 135);
 }
 .button__container {
   display: flex;
@@ -21,4 +23,13 @@
 
 .title__statistics {
   color: rgb(49, 53, 53);
+}
+
+.statistics__list {
+  text-align: start;
+}
+
+.item__statistics:not(:last-child) {
+  margin-bottom: 10px;
+  font-family: 15px;
 }
