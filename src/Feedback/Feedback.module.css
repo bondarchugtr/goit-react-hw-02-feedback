@@ -1,0 +1,24 @@
+.container {
+  width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 1px solid tan;
+  padding: 15px;
+}
+
+.title {
+  color: rgb(49, 53, 53);
+}
+.button__container {
+  display: flex;
+  justify-content: center;
+}
+
+.button__feedback:not(:last-child) {
+  margin-right: 10px;
+}
+
+.title__statistics {
+  color: rgb(49, 53, 53);
+}
