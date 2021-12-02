@@ -12,24 +12,7 @@
 .title {
   color: rgb(139, 126, 135);
 }
-.button__container {
-  display: flex;
-  justify-content: center;
-}
-
-.button__feedback:not(:last-child) {
-  margin-right: 10px;
-}
 
 .title__statistics {
   color: rgb(49, 53, 53);
-}
-
-.statistics__list {
-  text-align: start;
-}
-
-.item__statistics:not(:last-child) {
-  margin-bottom: 10px;
-  font-family: 15px;
 }

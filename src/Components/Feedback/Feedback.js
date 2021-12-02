@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import s from "./Feedback.module.css";
-import FeedbackOptions from "./Button";
-import Statistics from "./Statistics";
-import Notification from "./Notification";
+import FeedbackOptions from "../Button/FeedbackOptions";
+import Statistics from "../Statistics/Statistics";
+import Notification from "../Notification/Notification";
 
 class Feedback extends Component {
   state = {
