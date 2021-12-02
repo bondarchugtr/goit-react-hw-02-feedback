@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import s from "./Feedback.module.css";
 import FeedbackOptions from "./Button";
 import Statistics from "./Statistics";
+import Notification from "./Notification";
+
 class Feedback extends Component {
   state = {
     good: 0,
@@ -9,21 +11,8 @@ class Feedback extends Component {
     bad: 0,
   };
 
-  counterGood = () => {
-    this.setState((prevState) => ({
-      good: prevState.good + 1,
-    }));
-  };
-  counterNeutral = () => {
-    this.setState((prevState) => ({
-      neutral: prevState.neutral + 1,
-    }));
-  };
-
-  counterBad = () => {
-    this.setState((prevState) => ({
-      bad: prevState.bad + 1,
-    }));
+  onSetVoice = (type) => {
+    this.setState((prevState) => ({ [type]: prevState[type] + 1 }));
   };
 
   countTotalFeedback = () => {
@@ -38,26 +27,25 @@ class Feedback extends Component {
   render() {
     const total = this.countTotalFeedback();
     const positive = this.countPositiveFeedbackPercentage();
+    const keys = Object.keys(this.state);
+
     return (
       <div>
         <h1 className={s.title}>Please leave feedback</h1>
+        <FeedbackOptions options={keys} onLeaveFeedback={this.onSetVoice} />
 
-        <FeedbackOptions
-          counterGood={this.counterGood}
-          counterNeutral={this.counterNeutral}
-          counterBad={this.counterBad}
-        />
         <div className={s.statistics}>
           <h2 className={s.title__statistics}>Statistics</h2>
           {total > 0 ? (
             <Statistics
               good={this.state.good}
+              neutral={this.state.neutral}
               bad={this.state.bad}
               total={total}
               positive={positive}
-            />
+            ></Statistics>
           ) : (
-            "There is no feedback"
+            <Notification message="There is no feedback" />
           )}
         </div>
       </div>
